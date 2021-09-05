@@ -1,0 +1,17 @@
+{
+  "name": "my-clean-template",
+  "version": "0.0.0",
+  "description": "4Fun",
+  "repository": "git@github.com:fnoquiq/myCleanTemplate.git",
+  "author": "Gabriel Mesquita <gabrielteixeiramesquita@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "ts-node-dev -r tsconfig-paths/register --inspect --transpile-only --ignore-watch node_modules --respawn src/shared/server.ts",
+    "build": "tsc"
+  },
+  "devDependencies": {
+    "ts-node-dev": "^1.1.8",
+    "tsconfig-paths": "^3.11.0",
+    "typescript": "^4.4.2"
+  }
+}
