@@ -2,7 +2,6 @@
   "name": "my-clean-template",
   "version": "0.0.0",
   "description": "4Fun",
-  "repository": "git@github.com:fnoquiq/myCleanTemplate.git",
   "author": "Gabriel Mesquita <gabrielteixeiramesquita@gmail.com>",
   "license": "MIT",
   "scripts": {
@@ -22,6 +21,7 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-promise": "^4.2.1",
+    "git-commit-msg-linter": "^3.2.8",
     "prettier": "^2.3.2",
     "ts-node-dev": "^1.1.8",
     "tsconfig-paths": "^3.11.0",
