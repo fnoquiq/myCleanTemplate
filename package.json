@@ -5,10 +5,13 @@
   "author": "Gabriel Mesquita <gabrielteixeiramesquita@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "ts-node-dev -r tsconfig-paths/register --inspect --transpile-only --ignore-watch node_modules --respawn src/shared/server.ts",
+    "dev": "ts-node-dev -r tsconfig-paths/register --inspect --transpile-only --ignore-watch node_modules --respawn src/shared/http/server.ts",
     "build": "tsc",
     "lint": "eslint src --fix",
-    "test": "NODE_ENV=test jest --runInBand --passWithNoTests"
+    "test": "NODE_ENV=test jest --runInBand --passWithNoTests",
+    "prisma:generate": "prisma generate --schema=./src/shared/prisma/schema.prisma",
+    "prisma:migrate:dev": "prisma migrate dev --schema=./src/shared/prisma/schema.prisma",
+    "prisma:migrate:reset": "prisma migrate reset --schema=./src/shared/prisma/schema.prisma"
   },
   "devDependencies": {
     "@types/express": "^4.17.13",
@@ -29,10 +32,15 @@
     "jest": "^27.1.0",
     "lint-staged": "^11.1.2",
     "prettier": "^2.3.2",
+    "prisma": "^2.30.3",
     "ts-jest": "^27.0.5",
     "ts-node-dev": "^1.1.8",
     "tsconfig-paths": "^3.11.0",
     "typescript": "^4.4.2"
+  },
+  "dependencies": {
+    "@prisma/client": "^2.30.3",
+    "express": "^4.17.1"
   },
   "husky": {
     "hooks": {
@@ -44,8 +52,5 @@
       "yarn lint",
       "yarn test"
     ]
-  },
-  "dependencies": {
-    "express": "^4.17.1"
   }
 }

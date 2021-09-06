@@ -2,3 +2,6 @@ node_modules
 dist
 coverage
 .DS_Store
+.env
+yarn-error.log
+src/shared/prisma/generated

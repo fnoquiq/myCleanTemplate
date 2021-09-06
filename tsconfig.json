@@ -11,6 +11,9 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
+    "sourceMap": true,
+    "strict": true,
+    "lib": ["esnext"],
     "paths": {
       "@modules/*": ["modules/*"],
       "@config/*": ["config/*"],
