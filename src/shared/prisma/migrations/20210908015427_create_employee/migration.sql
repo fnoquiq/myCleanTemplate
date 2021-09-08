@@ -10,8 +10,8 @@ CREATE TABLE "Employee" (
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) NOT NULL,
 
-    PRIMARY KEY ("cpf")
+    CONSTRAINT "Employee_pkey" PRIMARY KEY ("cpf")
 );
 
 -- CreateIndex
-CREATE UNIQUE INDEX "Employee.cpf_unique" ON "Employee"("cpf");
+CREATE UNIQUE INDEX "Employee_cpf_key" ON "Employee"("cpf");
