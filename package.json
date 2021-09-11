@@ -40,7 +40,7 @@
     "express": "4.17.1"
   },
   "prisma": {
-    "schema": "./src/shared/prisma/schema.prisma"
+    "schema": "./src/shared/infra/prisma/schema.prisma"
   },
   "husky": {
     "hooks": {
