@@ -2,7 +2,8 @@
 CREATE TYPE "Role" AS ENUM ('USER', 'ADMIN');
 
 -- CreateTable
-CREATE TABLE "Employee" (
+CREATE TABLE "employees" (
+    "id" TEXT NOT NULL,
     "cpf" TEXT NOT NULL,
     "name" TEXT NOT NULL,
     "password" TEXT NOT NULL,
@@ -10,8 +11,8 @@ CREATE TABLE "Employee" (
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) NOT NULL,
 
-    CONSTRAINT "Employee_pkey" PRIMARY KEY ("cpf")
+    CONSTRAINT "employees_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateIndex
-CREATE UNIQUE INDEX "Employee_cpf_key" ON "Employee"("cpf");
+CREATE UNIQUE INDEX "employees_cpf_key" ON "employees"("cpf");

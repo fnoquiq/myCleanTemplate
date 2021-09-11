@@ -10,12 +10,15 @@ generator client {
 }
 
 model Employee {
-  cpf String @id @unique
+  id String  @id @default(uuid())
+  cpf String @unique
   name String
   password String
   role Role
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+
+  @@map("employees")
 }
 
 enum Role {
