@@ -1,7 +1,7 @@
 import { Employee } from '../domain/Employee'
-import { CpfAlreadyExistsError } from '../domain/error/CpfAlreadyExistsError'
 import { Role } from '../domain/Role'
 import { IEmployeesRepository } from '../repository/IEmployeesRepository'
+import { CpfAlreadyExistsError } from './error/CpfAlreadyExistsError'
 
 interface ICreateEmployee {
   cpf: string
