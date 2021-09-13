@@ -1,4 +1,4 @@
-import { Role } from '.prisma/client'
+import { Role } from './Role'
 
 export interface Employee {
   id?: string
