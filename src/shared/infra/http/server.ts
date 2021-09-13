@@ -1,3 +1,5 @@
 import { app } from './app'
 
-app.listen(3333, () => console.log('Server is running!'))
+app.listen(process.env.APP_PORT, () => {
+  console.log(`Server running on http://localhost:${process.env.APP_PORT}`)
+})
