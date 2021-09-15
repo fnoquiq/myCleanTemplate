@@ -3,7 +3,7 @@ import { Role } from '../domain/Role'
 import { IEmployeesRepository } from '../infra/repository/IEmployeesRepository'
 import { CpfAlreadyExistsError } from './error/CpfAlreadyExistsError'
 
-interface ICreateEmployee {
+interface IRequest {
   cpf: string
   name: string
   password: string
@@ -13,7 +13,7 @@ interface ICreateEmployee {
 export class CreateEmployee {
   constructor(private employeesRepository: IEmployeesRepository) {}
 
-  async execute(data: ICreateEmployee): Promise<Employee> {
+  async execute(data: IRequest): Promise<Employee> {
     const { cpf, name, password, role } = data
 
     const cpfAlreadyExists = await this.employeesRepository.findByCpf(cpf)

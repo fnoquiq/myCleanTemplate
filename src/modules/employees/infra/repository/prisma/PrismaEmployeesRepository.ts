@@ -1,8 +1,10 @@
 import { prisma } from '@shared/infra/prisma'
 
 import { Employee } from '@modules/employees/domain/Employee'
+import { CreateEmployeeDTO } from '@modules/employees/dto/CreateEmployeeDTO'
+import { EmployeeMapper } from '@modules/employees/mappers/EmployeeMapper'
 
-import { CreateEmployeeDTO, IEmployeesRepository } from '../IEmployeesRepository'
+import { IEmployeesRepository } from '../IEmployeesRepository'
 
 export class PrismaEmployeesRepository implements IEmployeesRepository {
   async create(data: CreateEmployeeDTO): Promise<Employee> {
@@ -12,7 +14,7 @@ export class PrismaEmployeesRepository implements IEmployeesRepository {
       data: { cpf, name, password, role },
     })
 
-    return employee
+    return EmployeeMapper.toDomain(employee)
   }
 
   async findByCpf(cpf: string): Promise<Employee | null> {
@@ -21,6 +23,11 @@ export class PrismaEmployeesRepository implements IEmployeesRepository {
         cpf,
       },
     })
-    return employee
+
+    if (!employee) {
+      return null
+    }
+
+    return EmployeeMapper.toDomain(employee)
   }
 }

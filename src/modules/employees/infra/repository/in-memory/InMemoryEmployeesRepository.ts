@@ -1,19 +1,22 @@
 import { v4 as uuid } from 'uuid'
 
 import { Employee } from '@modules/employees/domain/Employee'
+import { CreateEmployeeDTO } from '@modules/employees/dto/CreateEmployeeDTO'
 
-import { CreateEmployeeDTO, IEmployeesRepository } from '../IEmployeesRepository'
+import { IEmployeesRepository } from '../IEmployeesRepository'
 
 export class InMemoryEmployeesRepository implements IEmployeesRepository {
   private employees: Employee[] = []
 
   async create(data: CreateEmployeeDTO): Promise<Employee> {
-    const employee: Employee = {
-      id: uuid(),
-      createdAt: new Date(),
-      updatedAt: new Date(),
-      ...data,
-    }
+    const employee = Employee.create(
+      {
+        ...data,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      uuid()
+    )
 
     this.employees.push(employee)
 

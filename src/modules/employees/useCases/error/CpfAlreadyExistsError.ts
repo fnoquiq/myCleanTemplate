@@ -1,4 +1,4 @@
-import { AppError } from '@shared/infra/http/protocols/AppError'
+import { AppError } from '@shared/domain/protocols/AppError'
 
 export class CpfAlreadyExistsError extends AppError {
   constructor(cpf: string) {

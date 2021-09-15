@@ -1,4 +1,4 @@
-import { AppError } from '@shared/infra/http/protocols/AppError'
+import { AppError } from '@shared/domain/protocols/AppError'
 import { Controller } from '@shared/infra/http/protocols/Controller'
 import { HttpRequest } from '@shared/infra/http/protocols/HttpRequest'
 import {
