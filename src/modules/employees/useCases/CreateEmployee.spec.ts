@@ -1,6 +1,6 @@
 import { Role } from '../domain/Role'
-import { IEmployeesRepository } from '../repository/IEmployeesRepository'
-import { InMemoryEmployeesRepository } from '../repository/in-memory/InMemoryEmployeesRepository'
+import { IEmployeesRepository } from '../infra/repository/IEmployeesRepository'
+import { InMemoryEmployeesRepository } from '../infra/repository/in-memory/InMemoryEmployeesRepository'
 import { CreateEmployee } from './CreateEmployee'
 
 let employeesRepository: IEmployeesRepository

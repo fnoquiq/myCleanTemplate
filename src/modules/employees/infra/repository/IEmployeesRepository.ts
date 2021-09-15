@@ -1,5 +1,5 @@
-import { Employee } from '../domain/Employee'
-import { Role } from '../domain/Role'
+import { Employee } from '../../domain/Employee'
+import { Role } from '../../domain/Role'
 
 export interface CreateEmployeeDTO {
   cpf: string
