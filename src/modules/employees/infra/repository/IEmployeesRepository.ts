@@ -1,6 +1,12 @@
-import { CreateEmployeeDTO } from '@modules/employees/dto/CreateEmployeeDTO'
+import { Employee } from '@modules/employees/domain/Employee'
+import { Role } from '@modules/employees/domain/Role'
 
-import { Employee } from '../../domain/Employee'
+export interface CreateEmployeeDTO {
+  cpf: string
+  name: string
+  password: string
+  role: Role
+}
 
 export interface IEmployeesRepository {
   create(data: CreateEmployeeDTO): Promise<Employee>

@@ -1,9 +1,8 @@
 import { v4 as uuid } from 'uuid'
 
 import { Employee } from '@modules/employees/domain/Employee'
-import { CreateEmployeeDTO } from '@modules/employees/dto/CreateEmployeeDTO'
 
-import { IEmployeesRepository } from '../IEmployeesRepository'
+import { CreateEmployeeDTO, IEmployeesRepository } from '../IEmployeesRepository'
 
 export class InMemoryEmployeesRepository implements IEmployeesRepository {
   private employees: Employee[] = []
