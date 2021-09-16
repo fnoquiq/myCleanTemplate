@@ -35,9 +35,9 @@ describe('Create Employee', () => {
 
     const result = await createEmployee.execute({
       cpf: 'duplicated-cpf',
-      name: 'Gabriel Mesquita',
-      password: '123',
-      role: Role.ADMIN,
+      name: 'another-valid-name',
+      password: 'another-valid-password',
+      role: Role.USER,
     })
 
     expect(result.isLeft()).toBeTruthy()
