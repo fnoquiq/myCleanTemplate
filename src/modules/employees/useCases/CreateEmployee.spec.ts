@@ -14,14 +14,15 @@ describe('Create Employee', () => {
   })
 
   test('deve criar um funcionário', async () => {
-    const employee = await createEmployee.execute({
+    const result = await createEmployee.execute({
       cpf: 'valid-cpf',
       name: 'valid-name',
       password: 'valid-password',
       role: Role.ADMIN,
     })
 
-    expect(employee).toHaveProperty('id')
+    expect(result.isRight()).toBeTruthy()
+    expect(result.value).toHaveProperty('id')
   })
 
   test('não deve criar um funcionário com cpf duplicado', async () => {
@@ -32,13 +33,14 @@ describe('Create Employee', () => {
       role: Role.ADMIN,
     })
 
-    await expect(
-      createEmployee.execute({
-        cpf: 'duplicated-cpf',
-        name: 'Gabriel Mesquita',
-        password: '123',
-        role: Role.ADMIN,
-      })
-    ).rejects.toEqual(new CpfAlreadyExistsError('duplicated-cpf'))
+    const result = await createEmployee.execute({
+      cpf: 'duplicated-cpf',
+      name: 'Gabriel Mesquita',
+      password: '123',
+      role: Role.ADMIN,
+    })
+
+    expect(result.isLeft()).toBeTruthy()
+    expect(result.value).toEqual(new CpfAlreadyExistsError('duplicated-cpf'))
   })
 })

@@ -1,4 +1,4 @@
-import { AppError } from '../../../domain/protocols/AppError'
+import { AppError } from '@shared/domain/errors/AppError'
 
 export type HttpResponse = {
   statusCode: number

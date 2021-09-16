@@ -1,4 +1,3 @@
-import { AppError } from '@shared/domain/protocols/AppError'
 import { Controller } from '@shared/infra/http/protocols/Controller'
 import { HttpRequest } from '@shared/infra/http/protocols/HttpRequest'
 import {
@@ -17,20 +16,20 @@ export class CreateEmployeeController implements Controller {
     try {
       const { cpf, name, password, role } = httpRequest.body
 
-      const employee = await this.createEmployee.execute({
+      const result = await this.createEmployee.execute({
         cpf,
         name,
         password,
         role,
       })
 
-      return created(employee)
-    } catch (error) {
-      if (error instanceof AppError) {
-        return badRequest(error)
-      } else {
-        return serverError(new Error('Unexpected error on CreateEmployeeController'))
+      if (result.isLeft()) {
+        return badRequest(result.value)
       }
+
+      return created(result.value)
+    } catch (error) {
+      return serverError(new Error('Unexpected error on CreateEmployeeController'))
     }
   }
 }
