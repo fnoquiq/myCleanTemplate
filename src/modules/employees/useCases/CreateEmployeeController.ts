@@ -29,7 +29,7 @@ export class CreateEmployeeController implements Controller {
 
       return created(result.value)
     } catch (error) {
-      return serverError(new Error('Unexpected error on CreateEmployeeController'))
+      return serverError()
     }
   }
 }
