@@ -1,13 +1,18 @@
-# App files
+# Dependencies
 node_modules
-dist
+
+# Testing
 coverage
-yarn-error.log
 
-# MacOS
-.DS_Store
+# Build
+dist
 
-# .env
+# Environment
 .env
+.env.test
 .env.local
 .env.*.local
+
+# Others
+.DS_Store
+yarn-error.log
