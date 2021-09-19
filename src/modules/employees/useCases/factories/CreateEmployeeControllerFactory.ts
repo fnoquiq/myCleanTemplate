@@ -1,8 +1,9 @@
-import { PrismaEmployeesRepository } from '@modules/employees/infra/repository/prisma/PrismaEmployeesRepository'
-import { CreateEmployee } from '@modules/employees/useCases/CreateEmployee'
-import { CreateEmployeeController } from '@modules/employees/useCases/CreateEmployeeController'
+import { Controller } from '@shared/protocols/infra/Controller'
 
-import { Controller } from '../../../../shared/protocols/infra/Controller'
+import { PrismaEmployeesRepository } from '@modules/employees/infra/repository/prisma/PrismaEmployeesRepository'
+
+import { CreateEmployee } from '../CreateEmployee'
+import { CreateEmployeeController } from '../CreateEmployeeController'
 
 export function makeCreateEmployeeController(): Controller {
   const prismaEmployeesRepository = new PrismaEmployeesRepository()
