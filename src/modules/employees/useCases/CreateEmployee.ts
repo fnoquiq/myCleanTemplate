@@ -3,7 +3,7 @@ import { Either, left, right } from '@shared/domain/errors/Either'
 import { Employee } from '../domain/Employee'
 import { Role } from '../domain/Role'
 import { IEmployeesRepository } from '../infra/repository/IEmployeesRepository'
-import { CpfAlreadyExistsError } from './error/CpfAlreadyExistsError'
+import { CpfAlreadyExistsError } from './errors/CpfAlreadyExistsError'
 
 interface CreateEmployeeRequest {
   cpf: string

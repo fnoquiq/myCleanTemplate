@@ -2,7 +2,7 @@ import { Role } from '../domain/Role'
 import { IEmployeesRepository } from '../infra/repository/IEmployeesRepository'
 import { InMemoryEmployeesRepository } from '../infra/repository/in-memory/InMemoryEmployeesRepository'
 import { CreateEmployee } from './CreateEmployee'
-import { CpfAlreadyExistsError } from './error/CpfAlreadyExistsError'
+import { CpfAlreadyExistsError } from './errors/CpfAlreadyExistsError'
 
 let employeesRepository: IEmployeesRepository
 let createEmployee: CreateEmployee
