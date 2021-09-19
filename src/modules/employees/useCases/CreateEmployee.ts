@@ -1,4 +1,4 @@
-import { Either, left, right } from '@shared/domain/errors/Either'
+import { Either, left, right } from '@shared/protocols/logic/Either'
 
 import { Employee } from '../domain/Employee'
 import { Role } from '../domain/Role'

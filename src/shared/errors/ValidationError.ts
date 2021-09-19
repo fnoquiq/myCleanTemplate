@@ -1,4 +1,4 @@
-import { AppError } from '@shared/domain/errors/AppError'
+import { AppError } from '@shared/protocols/domain/AppError'
 
 export class ValidationError extends AppError {
   constructor(validationErrors: any) {

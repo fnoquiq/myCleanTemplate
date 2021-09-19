@@ -1,4 +1,4 @@
-import { Entity } from '@shared/domain/Entity'
+import { Entity } from '@shared/protocols/domain/Entity'
 
 import { Role } from './Role'
 

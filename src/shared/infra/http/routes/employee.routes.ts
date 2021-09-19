@@ -1,6 +1,6 @@
 import { Router } from 'express'
 
-import { adaptRoute } from '@shared/infra/http/protocols/AdaptRoute'
+import { adaptRoute } from '@shared/protocols/infra/AdaptRoute'
 
 import { makeCreateEmployeeController } from '../factories/CreateEmployeeControllerFactory'
 

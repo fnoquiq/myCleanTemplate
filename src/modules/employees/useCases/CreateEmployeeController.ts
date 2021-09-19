@@ -1,7 +1,7 @@
 import { ValidationError } from '@shared/errors/ValidationError'
-import { Controller } from '@shared/infra/http/protocols/Controller'
-import { HttpRequest } from '@shared/infra/http/protocols/HttpRequest'
-import { badRequest, created, HttpResponse } from '@shared/infra/http/protocols/HttpResponse'
+import { Controller } from '@shared/protocols/infra/Controller'
+import { HttpRequest } from '@shared/protocols/infra/HttpRequest'
+import { badRequest, created, HttpResponse } from '@shared/protocols/infra/HttpResponse'
 
 import { CreateEmployee } from './CreateEmployee'
 import { schema } from './validations/CreateEmployeeControllerValidator'
