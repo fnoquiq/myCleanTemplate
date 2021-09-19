@@ -32,7 +32,7 @@ describe('Create Employee Controller', () => {
     expect(employeeInDatabase).toBeTruthy()
   })
 
-  it('não deve criar um usuário por erro de validação', async () => {
+  it('não deve criar um usuário com erro de validação', async () => {
     const response = await request(app).post('/api/employees').send({
       cpf: 'valid-cpf',
       name: 'valid-name',
