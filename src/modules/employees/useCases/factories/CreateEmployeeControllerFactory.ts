@@ -2,7 +2,7 @@ import { PrismaEmployeesRepository } from '@modules/employees/infra/repository/p
 import { CreateEmployee } from '@modules/employees/useCases/CreateEmployee'
 import { CreateEmployeeController } from '@modules/employees/useCases/CreateEmployeeController'
 
-import { Controller } from '../../../protocols/infra/Controller'
+import { Controller } from '../../../../shared/protocols/infra/Controller'
 
 export function makeCreateEmployeeController(): Controller {
   const prismaEmployeesRepository = new PrismaEmployeesRepository()
