@@ -14,4 +14,14 @@ export class EmployeeMapper {
       raw.id
     )
   }
+
+  static toView(raw: Employee) {
+    return {
+      id: raw.id,
+      props: {
+        ...raw.props,
+        password: undefined,
+      },
+    }
+  }
 }
