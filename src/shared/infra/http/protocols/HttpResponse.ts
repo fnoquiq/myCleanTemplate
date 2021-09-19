@@ -2,22 +2,27 @@ import { AppError } from '@shared/domain/errors/AppError'
 
 export type HttpResponse = {
   statusCode: number
-  body: any
+  error?: {
+    name: string
+    message: string
+    body?: any
+  }
+  data?: any
 }
 
 export const created = (data: any): HttpResponse => ({
   statusCode: 201,
-  body: data,
+  data,
 })
 
 export const badRequest = (error: AppError): HttpResponse => ({
   statusCode: 400,
-  body: error,
+  error,
 })
 
 export const serverError = (): HttpResponse => ({
   statusCode: 500,
-  body: {
+  error: {
     name: 'InternalServerError',
     message: 'Um erro inesperado aconteceu! Tente novamente!',
   },

@@ -4,13 +4,12 @@ export interface AppErrorPayload {
   body?: any
 }
 
-export abstract class AppError extends Error {
+export abstract class AppError {
   name: string
   message: string
   body?: any
 
   constructor({ name, message, body }: AppErrorPayload) {
-    super(`${name}: ${message}`)
     this.name = name
     this.message = message
     this.body = body
