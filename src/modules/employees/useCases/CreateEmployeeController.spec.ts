@@ -14,11 +14,12 @@ describe('Create Employee Controller', () => {
     await prisma.$disconnect()
   })
 
-  it('should be able to register new user', async () => {
+  it('deve criar um funcionário', async () => {
     const response = await request(app).post('/api/employees').send({
       cpf: 'valid-cpf',
       name: 'valid-name',
       password: 'valid-password',
+      password_confirmation: 'valid-password',
       role: Role.ADMIN,
     })
 
@@ -29,5 +30,17 @@ describe('Create Employee Controller', () => {
     })
 
     expect(employeeInDatabase).toBeTruthy()
+  })
+
+  it('não deve criar um usuário por erro de validação', async () => {
+    const response = await request(app).post('/api/employees').send({
+      cpf: 'valid-cpf',
+      name: 'valid-name',
+      password: 'valid-password', // missing password_confirmation
+      role: Role.ADMIN,
+    })
+
+    expect(response.status).toBe(400)
+    expect(response.body.error.name).toEqual('ValidationError')
   })
 })
