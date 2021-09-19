@@ -13,23 +13,19 @@ export class CreateEmployeeController implements Controller {
   constructor(private createEmployee: CreateEmployee) {}
 
   async handle(httpRequest: HttpRequest): Promise<HttpResponse> {
-    try {
-      const { cpf, name, password, role } = httpRequest.body
+    const { cpf, name, password, role } = httpRequest.body
 
-      const result = await this.createEmployee.execute({
-        cpf,
-        name,
-        password,
-        role,
-      })
+    const result = await this.createEmployee.execute({
+      cpf,
+      name,
+      password,
+      role,
+    })
 
-      if (result.isLeft()) {
-        return badRequest(result.value)
-      }
-
-      return created(result.value)
-    } catch (error) {
-      return serverError()
+    if (result.isLeft()) {
+      return badRequest(result.value)
     }
+
+    return created(result.value)
   }
 }
