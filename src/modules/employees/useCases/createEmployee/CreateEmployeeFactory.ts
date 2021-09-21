@@ -1,5 +1,5 @@
 import { Controller } from '@shared/protocols/infra/Controller'
-import BCryptHashProvider from '@shared/providers/HashProvider/implementations/BcryptHashProvider'
+import { BCryptHashProvider } from '@shared/providers/HashProvider/implementations/BcryptHashProvider'
 
 import { PrismaEmployeesRepository } from '@modules/employees/infra/repository/prisma/PrismaEmployeesRepository'
 

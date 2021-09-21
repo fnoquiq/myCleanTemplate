@@ -1,5 +1,5 @@
 import { Either, left, right } from '@shared/protocols/logic/Either'
-import IHashProvider from '@shared/providers/HashProvider/IHashProvider'
+import { IHashProvider } from '@shared/providers/HashProvider/IHashProvider'
 
 import { Employee } from '../../domain/Employee'
 import { Role } from '../../domain/Role'

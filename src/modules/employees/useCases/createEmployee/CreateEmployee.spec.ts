@@ -1,5 +1,5 @@
-import FakeHashProvider from '@shared/providers/HashProvider/fakes/FakerHashProvider'
-import IHashProvider from '@shared/providers/HashProvider/IHashProvider'
+import { FakeHashProvider } from '@shared/providers/HashProvider/fakes/FakerHashProvider'
+import { IHashProvider } from '@shared/providers/HashProvider/IHashProvider'
 
 import { Employee } from '../../domain/Employee'
 import { Role } from '../../domain/Role'
