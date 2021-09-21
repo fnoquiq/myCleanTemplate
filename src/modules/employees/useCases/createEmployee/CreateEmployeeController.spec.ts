@@ -7,7 +7,7 @@ import request from 'supertest'
 import { app } from '@shared/infra/http/app'
 import { prisma } from '@shared/infra/prisma'
 
-import { Role } from '../domain/Role'
+import { Role } from '../../domain/Role'
 
 describe('Create Employee Controller', () => {
   afterAll(async () => {

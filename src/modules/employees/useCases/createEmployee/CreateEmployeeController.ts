@@ -3,14 +3,14 @@ import { Controller } from '@shared/protocols/infra/Controller'
 import { HttpRequest } from '@shared/protocols/infra/HttpRequest'
 import { badRequest, created, HttpResponse } from '@shared/protocols/infra/HttpResponse'
 
-import { EmployeeMapper } from '../mappers/EmployeeMapper'
+import { EmployeeMapper } from '../../mappers/EmployeeMapper'
 import { CreateEmployee } from './CreateEmployee'
-import { schema } from './validations/CreateEmployeeControllerValidator'
+import { createEmployeeValidator } from './CreateEmployeeValidator'
 export class CreateEmployeeController implements Controller {
   constructor(private createEmployee: CreateEmployee) {}
 
   async handle(httpRequest: HttpRequest): Promise<HttpResponse> {
-    const { error } = schema.validate(httpRequest)
+    const { error } = createEmployeeValidator.validate(httpRequest)
 
     if (error) {
       return badRequest(new ValidationError(error.details))

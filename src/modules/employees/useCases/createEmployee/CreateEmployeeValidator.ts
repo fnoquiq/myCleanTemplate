@@ -2,7 +2,7 @@ import Joi from 'joi'
 
 import { Role } from '@modules/employees/domain/Role'
 
-export const schema = Joi.object({
+export const createEmployeeValidator = Joi.object({
   body: Joi.object({
     cpf: Joi.string().required().trim(),
     name: Joi.string().required().trim(),

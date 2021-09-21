@@ -1,12 +1,12 @@
 import FakeHashProvider from '@shared/providers/HashProvider/fakes/FakerHashProvider'
 import IHashProvider from '@shared/providers/HashProvider/IHashProvider'
 
-import { Employee } from '../domain/Employee'
-import { Role } from '../domain/Role'
-import { IEmployeesRepository } from '../infra/repository/IEmployeesRepository'
-import { InMemoryEmployeesRepository } from '../infra/repository/in-memory/InMemoryEmployeesRepository'
+import { Employee } from '../../domain/Employee'
+import { Role } from '../../domain/Role'
+import { IEmployeesRepository } from '../../infra/repository/IEmployeesRepository'
+import { InMemoryEmployeesRepository } from '../../infra/repository/in-memory/InMemoryEmployeesRepository'
+import { CpfAlreadyExistsError } from '../errors/CpfAlreadyExistsError'
 import { CreateEmployee } from './CreateEmployee'
-import { CpfAlreadyExistsError } from './errors/CpfAlreadyExistsError'
 
 let employeesRepository: IEmployeesRepository
 let hashProvider: IHashProvider

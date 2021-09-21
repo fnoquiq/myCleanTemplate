@@ -1,10 +1,10 @@
 import { Either, left, right } from '@shared/protocols/logic/Either'
 import IHashProvider from '@shared/providers/HashProvider/IHashProvider'
 
-import { Employee } from '../domain/Employee'
-import { Role } from '../domain/Role'
-import { IEmployeesRepository } from '../infra/repository/IEmployeesRepository'
-import { CpfAlreadyExistsError } from './errors/CpfAlreadyExistsError'
+import { Employee } from '../../domain/Employee'
+import { Role } from '../../domain/Role'
+import { IEmployeesRepository } from '../../infra/repository/IEmployeesRepository'
+import { CpfAlreadyExistsError } from '../errors/CpfAlreadyExistsError'
 
 interface CreateEmployeeRequest {
   cpf: string
