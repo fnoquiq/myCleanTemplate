@@ -4,8 +4,8 @@ import { JsonWebTokenJwtProvider } from '@shared/providers/JwtProvider/implement
 
 import { PrismaEmployeesRepository } from '@modules/employees/infra/repository/prisma/PrismaEmployeesRepository'
 
-import { AuthenticateEmployee } from './AuthenticateEmployee'
-import { AuthenticateEmployeeController } from './AuthenticateEmployeeController'
+import { AuthenticateEmployee } from '../authenticateEmployee/AuthenticateEmployee'
+import { AuthenticateEmployeeController } from '../authenticateEmployee/AuthenticateEmployeeController'
 
 export function makeAuthenticateEmployeeController(): Controller {
   const employeesRepository = new PrismaEmployeesRepository()

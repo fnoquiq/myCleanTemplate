@@ -3,8 +3,8 @@ import { BCryptHashProvider } from '@shared/providers/HashProvider/implementatio
 
 import { PrismaEmployeesRepository } from '@modules/employees/infra/repository/prisma/PrismaEmployeesRepository'
 
-import { CreateEmployee } from './CreateEmployee'
-import { CreateEmployeeController } from './CreateEmployeeController'
+import { CreateEmployee } from '../createEmployee/CreateEmployee'
+import { CreateEmployeeController } from '../createEmployee/CreateEmployeeController'
 
 export function makeCreateEmployeeController(): Controller {
   const employeesRepository = new PrismaEmployeesRepository()
