@@ -10,6 +10,11 @@ export type HttpResponse = {
   data?: any
 }
 
+export const ok = (data: any): HttpResponse => ({
+  statusCode: 200,
+  data,
+})
+
 export const created = (data: any): HttpResponse => ({
   statusCode: 201,
   data,
