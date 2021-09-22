@@ -17,6 +17,8 @@ type AuthenticateEmployeeResponse = Either<
 >
 
 export class AuthenticateEmployee {
+  private readonly ACCESS_TOKEN_EXPIRES_IN = '1d'
+
   constructor(
     private employeesRepository: IEmployeesRepository,
     private jwtProvider: IJwtProvider,
@@ -39,7 +41,7 @@ export class AuthenticateEmployee {
 
     const token = this.jwtProvider.create({
       subject: employee.id,
-      expiresIn: '1d',
+      expiresIn: this.ACCESS_TOKEN_EXPIRES_IN,
     })
 
     return right({
