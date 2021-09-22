@@ -34,7 +34,7 @@
       "warn",
       {
         "newlinesBetween": "always",
-        "groups": ["module", ["/^@config/", "/^@shared/"], "/^@/", ["parent", "sibling", "index"]],
+        "groups": ["module", "/^@shared/", "/^@/", ["parent", "sibling", "index"]],
         "alphabetize": { "order": "asc", "ignoreCase": true }
       }
     ]
