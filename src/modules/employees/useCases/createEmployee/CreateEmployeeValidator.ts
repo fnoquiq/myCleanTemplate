@@ -1,11 +1,13 @@
 import Joi from '@hapi/joi'
 
+import { cpfValidator } from '@shared/infra/joi/customValidators'
+
 import { Role } from '@modules/employees/domain/Role'
 
 export const createEmployeeValidator = Joi.object({
   body: Joi.object({
-    cpf: Joi.string().required().trim(),
-    name: Joi.string().required().trim(),
+    cpf: Joi.string().required().trim().custom(cpfValidator),
+    name: Joi.string().required().trim().min(3),
     password: Joi.string().required().trim(),
     password_confirmation: Joi.ref('password'),
     role: Joi.string().valid(...Object.values(Role)),
