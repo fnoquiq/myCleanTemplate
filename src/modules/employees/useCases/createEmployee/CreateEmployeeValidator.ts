@@ -6,11 +6,13 @@ import { Validator } from '@shared/protocols/infra/Validator'
 import { Role } from '@modules/employees/domain/Role'
 
 interface CreateEmployeeProps {
-  cpf: string
-  name: string
-  password: string
-  password_confirmation: string
-  role: Role
+  body: {
+    cpf: string
+    name: string
+    password: string
+    password_confirmation: string
+    role: Role
+  }
 }
 
 const createEmployeeSchema = Joi.object({

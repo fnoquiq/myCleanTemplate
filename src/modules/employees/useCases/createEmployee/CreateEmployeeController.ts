@@ -15,7 +15,7 @@ export class CreateEmployeeController implements Controller {
       return badRequest(validationResult.value)
     }
 
-    const { cpf, name, password, role } = validationResult.value
+    const { cpf, name, password, role } = validationResult.value.body
 
     const result = await this.createEmployee.execute({
       cpf,

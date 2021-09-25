@@ -14,7 +14,7 @@ export class AuthenticateEmployeeController implements Controller {
       return badRequest(validationResult.value)
     }
 
-    const { cpf, password } = validationResult.value
+    const { cpf, password } = validationResult.value.body
 
     const result = await this.authenticateEmployee.execute({ cpf, password })
 

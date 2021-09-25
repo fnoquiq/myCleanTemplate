@@ -20,6 +20,8 @@ export const adaptRoute = (controller: Controller): RequestHandler => {
         })
       }
     } catch (error) {
+      // eslint-disable-next-line no-console
+      console.log(error)
       response.status(500).json({
         error: {
           name: 'InternalServerError',

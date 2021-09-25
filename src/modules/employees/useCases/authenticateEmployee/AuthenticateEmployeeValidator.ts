@@ -4,8 +4,10 @@ import { cpfValidator } from '@shared/infra/joi/customValidators'
 import { Validator } from '@shared/protocols/infra/Validator'
 
 interface AuthenticateEmployeeProps {
-  cpf: string
-  password: string
+  body: {
+    cpf: string
+    password: string
+  }
 }
 
 export const authenticateEmployeeSchema = Joi.object({

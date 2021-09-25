@@ -9,13 +9,16 @@ import { prisma } from '@shared/infra/prisma'
 
 import { Role } from '@modules/employees/domain/Role'
 
+const VALID_CPF = '43916550047'
+const NON_EXIST_CPF = '59959648010'
+
 describe('Authenticate Employee Controller', () => {
   afterAll(async () => {
     await prisma.$disconnect()
   })
   test('deve autenticar um funcionário', async () => {
     await request(app).post('/api/employees').send({
-      cpf: 'valid-cpf',
+      cpf: VALID_CPF,
       name: 'valid-name',
       password: 'valid-password',
       password_confirmation: 'valid-password',
@@ -23,7 +26,7 @@ describe('Authenticate Employee Controller', () => {
     })
 
     const response = await request(app).post('/api/login').send({
-      cpf: 'valid-cpf',
+      cpf: VALID_CPF,
       password: 'valid-password',
     })
 
@@ -34,7 +37,7 @@ describe('Authenticate Employee Controller', () => {
 
   test('não deve autenticar se estiver com erros de validação', async () => {
     const response = await request(app).post('/api/login').send({
-      cpf: 'valid-cpf',
+      cpf: VALID_CPF,
       // password is required
     })
 
@@ -44,7 +47,7 @@ describe('Authenticate Employee Controller', () => {
 
   test('não deve autenticar se as credenciais estiverem erradas', async () => {
     const response = await request(app).post('/api/login').send({
-      cpf: 'non-exist-cpf',
+      cpf: NON_EXIST_CPF,
       password: 'invalid-password',
     })
 
