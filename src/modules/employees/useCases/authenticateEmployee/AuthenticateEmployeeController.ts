@@ -1,4 +1,3 @@
-import { ValidationError } from '@shared/errors/ValidationError'
 import { Controller } from '@shared/protocols/infra/Controller'
 import { HttpRequest } from '@shared/protocols/infra/HttpRequest'
 import { badRequest, HttpResponse, ok } from '@shared/protocols/infra/HttpResponse'
@@ -9,13 +8,13 @@ export class AuthenticateEmployeeController implements Controller {
   constructor(private authenticateEmployee: AuthenticateEmployee) {}
 
   async handle(httpRequest: HttpRequest): Promise<HttpResponse> {
-    const { error } = authenticateEmployeeValidator.validate(httpRequest)
+    const validationResult = authenticateEmployeeValidator.validate(httpRequest)
 
-    if (error) {
-      return badRequest(new ValidationError(error.details))
+    if (validationResult.isLeft()) {
+      return badRequest(validationResult.value)
     }
 
-    const { cpf, password } = httpRequest.body
+    const { cpf, password } = validationResult.value
 
     const result = await this.authenticateEmployee.execute({ cpf, password })
 
