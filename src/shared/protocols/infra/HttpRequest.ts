@@ -3,4 +3,5 @@ export interface HttpRequest {
   headers?: any
   params?: any
   query?: any
+  userId?: string
 }

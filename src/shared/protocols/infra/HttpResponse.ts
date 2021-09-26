@@ -25,6 +25,11 @@ export const badRequest = (error: AppError): HttpResponse => ({
   error,
 })
 
+export const forbidden = (error: Error): HttpResponse => ({
+  statusCode: 403,
+  error,
+})
+
 export const serverError = (): HttpResponse => ({
   statusCode: 500,
   error: {

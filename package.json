@@ -5,9 +5,7 @@
   "author": "Gabriel Mesquita <gabrielteixeiramesquita@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "yarn dev:server & yarn dev:studio",
-    "dev:server": "tsnd --respawn --transpile-only --ignore-watch node_modules --exit-child --clear -r tsconfig-paths/register src/shared/infra/http/server.ts",
-    "dev:studio": "prisma studio &",
+    "dev": "tsnd --respawn --transpile-only --ignore-watch node_modules --exit-child --clear -r tsconfig-paths/register src/shared/infra/http/server.ts",
     "build": "tsc",
     "lint": "eslint src --fix",
     "test": "jest --runInBand --passWithNoTests"

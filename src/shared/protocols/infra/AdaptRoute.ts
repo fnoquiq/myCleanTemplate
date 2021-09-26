@@ -8,6 +8,10 @@ export const adaptRoute = (controller: Controller): RequestHandler => {
     try {
       const httpRequest: HttpRequest = {
         body: request.body,
+        headers: {
+          accessToken: request.headers?.['x-access-token'],
+        },
+        userId: request.userId,
       }
 
       const httpResponse = await controller.handle(httpRequest)

@@ -4,11 +4,13 @@
 
 import request from 'supertest'
 
+import { createAndAuthenticateEmployee } from '@shared/helpers/test/EmployeeFactory'
 import { app } from '@shared/infra/http/app'
 import { prisma } from '@shared/infra/prisma'
 
 import { Role } from '@modules/employees/domain/Role'
 
+const { validToken } = createAndAuthenticateEmployee()
 const VALID_CPF = '43916550047'
 const NON_EXIST_CPF = '59959648010'
 
@@ -17,7 +19,7 @@ describe('Authenticate Employee Controller', () => {
     await prisma.$disconnect()
   })
   test('deve autenticar um funcionário', async () => {
-    await request(app).post('/api/employees').send({
+    await request(app).post('/api/employees').set('x-access-token', validToken).send({
       cpf: VALID_CPF,
       name: 'valid-name',
       password: 'valid-password',
@@ -25,7 +27,7 @@ describe('Authenticate Employee Controller', () => {
       role: Role.ADMIN,
     })
 
-    const response = await request(app).post('/api/login').send({
+    const response = await request(app).post('/api/login').set('x-access-token', validToken).send({
       cpf: VALID_CPF,
       password: 'valid-password',
     })
@@ -36,7 +38,7 @@ describe('Authenticate Employee Controller', () => {
   })
 
   test('não deve autenticar se estiver com erros de validação', async () => {
-    const response = await request(app).post('/api/login').send({
+    const response = await request(app).post('/api/login').set('x-access-token', validToken).send({
       cpf: VALID_CPF,
       // password is required
     })
@@ -46,7 +48,7 @@ describe('Authenticate Employee Controller', () => {
   })
 
   test('não deve autenticar se as credenciais estiverem erradas', async () => {
-    const response = await request(app).post('/api/login').send({
+    const response = await request(app).post('/api/login').set('x-access-token', validToken).send({
       cpf: NON_EXIST_CPF,
       password: 'invalid-password',
     })
