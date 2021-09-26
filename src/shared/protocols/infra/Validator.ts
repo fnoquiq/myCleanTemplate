@@ -9,7 +9,9 @@ export class Validator<T> {
   constructor(private readonly schema: Joi.ObjectSchema) {}
 
   public validate(httpRequest: HttpRequest): Either<ValidationError, T> {
-    const { error, value } = this.schema.validate(httpRequest)
+    const { error, value } = this.schema.validate(httpRequest, {
+      allowUnknown: true,
+    })
 
     if (error) {
       return left(new ValidationError(error.details))
