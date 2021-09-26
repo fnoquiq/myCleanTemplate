@@ -1,4 +1,4 @@
-import Joi from '@hapi/joi'
+import Joi from 'joi'
 
 import { cpfValidator } from '@shared/infra/joi/customValidators'
 import { Validator } from '@shared/protocols/infra/Validator'
